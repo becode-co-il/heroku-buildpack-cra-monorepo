@@ -1,0 +1,19 @@
+#!/bin/sh
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+if [ ! -f "$ENV_DIR/CUSTOM_PROCFILE" ]; then
+  echo "CUSTOM_PROCFILE not set. Aborting."
+  exit 1
+fi
+
+CUSTOM_PROCFILE="$(cat "$ENV_DIR/CUSTOM_PROCFILE")"
+
+if [ ! -f "$BUILD_DIR/$CUSTOM_PROCFILE" ]; then
+  echo "No Procfile found at $CUSTOM_PROCFILE. Aborting."
+  exit 1
+fi
+
+cp "$BUILD_DIR/$CUSTOM_PROCFILE" "$BUILD_DIR/Procfile"

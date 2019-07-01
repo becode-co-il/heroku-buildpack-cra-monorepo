@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Custom Procfile"
+exit 0

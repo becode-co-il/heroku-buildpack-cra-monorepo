@@ -21,7 +21,6 @@ cd providers-web
 yarn link shared
 
 yarn install
-npx browserslist@latest --update-db
 yarn build
 
 cp "./Procfile" "$BUILD_DIR/Procfile"

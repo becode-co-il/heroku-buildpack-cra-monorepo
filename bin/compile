@@ -27,6 +27,8 @@ cd "$BUILD_DIR/$APP_FOLDER"
 echo "AFTER cd APP_FOLDER"
 ls
 cd providers-web
+ls
+echo "AFTER cd providers-web"
 yarn install
 yarn build
 

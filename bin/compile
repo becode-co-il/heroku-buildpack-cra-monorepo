@@ -16,8 +16,8 @@ APP_FOLDER="$BUILD_DIR/$APP_FOLDER"
 echo "APP FOLDER"
 echo $APP_FOLDER
 
-cd "$BUILD_DIR/$APP_FOLDER" 
-echo "AFTER cd BUILD_DIR/$APP_FOLDER"
+cd "$BUILD_DIR$APP_FOLDER" 
+echo "AFTER cd BUILD_DIR$APP_FOLDER"
 ls -ltr
 yarn install
 yarn build

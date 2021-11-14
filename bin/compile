@@ -12,15 +12,21 @@ fi
 
 echo "init ls"
 ls
+echo "APP FOLDER"
+echo APP_FOLDER
+echo $APP_FOLDER
 
-APP_FOLDER="$(cat "$BUILD_DIR$APP_FOLDER")"
+echo "ENV_DIR"
+echo $ENV_DIR
+
+APP_FOLDER="$(cat "$ENV_DIR/$APP_FOLDER")"
 echo "APP FOLDER"
 echo $APP_FOLDER
 
-cd $APP_FOLDER
+cd "$BUILD_DIR/$APP_FOLDER" 
 echo "AFTER cd APP_FOLDER"
 ls
 yarn install
 yarn build
 
-cp "$APP_FOLDERProcfile" "$BUILD_DIRProcfile"
+cp "$APP_FOLDER/Procfile" "$BUILD_DIR/Procfile"

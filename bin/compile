@@ -21,6 +21,7 @@ cd providers-web
 yarn link shared
 
 yarn install
+npx browserslist@latest --update-db
 yarn build
 
 cd ..

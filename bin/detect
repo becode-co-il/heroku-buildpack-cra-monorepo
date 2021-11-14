@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "Custom Procfile"
+echo "Detected <======== becode-co-il/heroku-buildpack-cra-monorepo ========>"
 exit 0

@@ -9,16 +9,14 @@ if [ ! -f "$ENV_DIR/APP_FOLDER" ]; then
   exit 1
 fi
 
+ls -ltr
+
 APP_FOLDER="$(cat "$ENV_DIR/APP_FOLDER")"
-
-if [ ! -f "$BUILD_DIR/$APP_FOLDER" ]; then
-  echo "No folder found at $APP_FOLDER. Aborting."
-  exit 1
-fi
-
 APP_FOLDER="$BUILD_DIR/$APP_FOLDER"
+echo $APP_FOLDER
 
 cd "$BUILD_DIR/$APP_FOLDER" 
+ls -ltr
 yarn install
 yarn build
 

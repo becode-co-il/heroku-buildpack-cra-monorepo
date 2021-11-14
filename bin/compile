@@ -11,7 +11,7 @@ if [ ! -f "$ENV_DIR/APP_FOLDER" ]; then
 fi
 
 ls
-cd HEROKU_DIR
+cd $HEROKU_DIR
 ls
 
 # APP_FOLDER="$(cat "$BUILD_DIR/APP_FOLDER")"

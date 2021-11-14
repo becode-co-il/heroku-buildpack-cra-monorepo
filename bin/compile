@@ -10,26 +10,12 @@ if [ ! -f "$ENV_DIR/APP_FOLDER" ]; then
   exit 1
 fi
 
-echo "init ls"
-ls
-echo "APP FOLDER"
-echo APP_FOLDER
-echo $APP_FOLDER
-
-echo "ENV_DIR"
-echo $ENV_DIR
-
 APP_FOLDER="$(cat "$ENV_DIR/$APP_FOLDER")"
-echo "APP FOLDER"
-echo $APP_FOLDER
 
 cd "$BUILD_DIR/$APP_FOLDER" 
-echo "AFTER cd APP_FOLDER"
-ls
 cd providers-web
-ls
-echo "AFTER cd providers-web"
 yarn install
+yarn link shared
 yarn build
 
 cp "$APP_FOLDER/Procfile" "$BUILD_DIR/Procfile"

@@ -13,7 +13,7 @@ fi
 echo "init ls"
 ls
 
-APP_FOLDER="$(cat "$BUILD_DIR/APP_FOLDER")"
+APP_FOLDER="$(cat "$BUILD_DIR$APP_FOLDER")"
 echo "APP FOLDER"
 echo $APP_FOLDER
 

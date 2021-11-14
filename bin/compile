@@ -4,16 +4,22 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-if [ ! -f "$ENV_DIR/CUSTOM_PROCFILE" ]; then
-  echo "CUSTOM_PROCFILE not set. Aborting."
+if [ ! -f "$ENV_DIR/APP_FOLDER" ]; then
+  echo "APP_FOLDER not set. Aborting."
   exit 1
 fi
 
-CUSTOM_PROCFILE="$(cat "$ENV_DIR/CUSTOM_PROCFILE")"
+APP_FOLDER="$(cat "$ENV_DIR/APP_FOLDER")"
 
-if [ ! -f "$BUILD_DIR/$CUSTOM_PROCFILE" ]; then
-  echo "No Procfile found at $CUSTOM_PROCFILE. Aborting."
+if [ ! -f "$BUILD_DIR/$APP_FOLDER" ]; then
+  echo "No folder found at $APP_FOLDER. Aborting."
   exit 1
 fi
 
-cp "$BUILD_DIR/$CUSTOM_PROCFILE" "$BUILD_DIR/Procfile"
+APP_FOLDER="$BUILD_DIR/$APP_FOLDER"
+
+cd "$BUILD_DIR/$APP_FOLDER" 
+yarn install
+yarn build
+
+cp "$APP_FOLDER/Procfile" "$BUILD_DIR/Procfile"

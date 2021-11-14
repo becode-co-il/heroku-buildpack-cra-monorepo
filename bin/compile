@@ -4,32 +4,23 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 HEROKU_DIR=$BUILD_DIR/.heroku
-bp_dir=$(dirname $(dirname $0))
 
 if [ ! -f "$ENV_DIR/APP_FOLDER" ]; then
   echo "APP_FOLDER not set. Aborting."
   exit 1
 fi
 
-echo "bp_dir"
-echo $bp_dir
-
 echo "init ls"
 ls
-cd $HEROKU_DIR
-echo "AFTER CD HEORKU DIR"
-ls
 
-# APP_FOLDER="$(cat "$BUILD_DIR/APP_FOLDER")"
-APP_FOLDER="$HEROKU_DIR/$APP_FOLDER"
+APP_FOLDER="$(cat "$BUILD_DIR/APP_FOLDER")"
 echo "APP FOLDER"
 echo $APP_FOLDER
 
-# cd "$HEROKU_DIR$APP_FOLDER" 
 cd $APP_FOLDER
-echo "AFTER cd HEROKU_DIR$APP_FOLDER"
-ls -ltr
+echo "AFTER cd APP_FOLDER"
+ls
 yarn install
 yarn build
 
-cp "$APP_FOLDER/Procfile" "$BUILD_DIR/Procfile"
+cp "$APP_FOLDERProcfile" "$BUILD_DIRProcfile"

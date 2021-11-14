@@ -10,17 +10,20 @@ if [ ! -f "$ENV_DIR/APP_FOLDER" ]; then
   exit 1
 fi
 
-ls -ltr
+ls
+cd HEROKU_DIR
+ls
 
-APP_FOLDER="$(cat "$ENV_DIR/APP_FOLDER")"
+# APP_FOLDER="$(cat "$BUILD_DIR/APP_FOLDER")"
 APP_FOLDER="$HEROKU_DIR/$APP_FOLDER"
 echo "APP FOLDER"
 echo $APP_FOLDER
 
-cd "$HEROKU_DIR$APP_FOLDER" 
+# cd "$HEROKU_DIR$APP_FOLDER" 
+cd $APP_FOLDER
 echo "AFTER cd HEROKU_DIR$APP_FOLDER"
 ls -ltr
 yarn install
 yarn build
 
-cp "$APP_FOLDER/Procfile" "$HEROKU_DIR/Procfile"
+cp "$APP_FOLDER/Procfile" "$BUILD_DIR/Procfile"

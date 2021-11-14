@@ -23,4 +23,5 @@ yarn link shared
 yarn install
 yarn build
 
+cd ..
 cp "$APP_FOLDER/Procfile" "$BUILD_DIR/Procfile"
